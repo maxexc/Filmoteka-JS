@@ -52,7 +52,7 @@ function fetchApi(language) {
     <p class='text'>${item.genre_ids} | ${item.release_date}</p>
   </div>
    <div class="over">
-    <p>${item.overview}</p>
+    
     </div>
                         <div class="rating">
                         <span class="rating-value">${item.vote_average.toFixed(
