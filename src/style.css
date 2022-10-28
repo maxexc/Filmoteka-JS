@@ -73,16 +73,9 @@ img {
   border-radius: 4px;
   background-color: orange;
 }
-.gallery-item {
-}
 .card-box {
   display: flex;
   flex-direction: column;
-  /* flex-wrap: wrap-reverse; */
-  /* align-items: flex-end; */
-  /* text-align: center; */
-  justify-content: flex-end;
-  align-content: flex-end;
   margin: 1% 2%;
   float: left;
 }
@@ -92,10 +85,4 @@ img {
 .text {
   display: inline-block;
   color: #ff6b08;
-}
-.over {
-}
-.rating {
-}
-.rating-value {
 }
