@@ -19,6 +19,44 @@ function onUkClick() {
 const currentLanguage = localStorage.getItem('language');
 console.log(currentLanguage);
 
+fetchGenres(currentLanguage);
+async function fetchGenres(language) {
+  const currentLang = language;
+  await fetch(
+    `https://api.themoviedb.org/3/genre/movie/list?api_key=f87210516a7f6fda7a5c975f08793382&language=${currentLang}`
+  )
+    .then(response => {
+      return response.json();
+    })
+    .then(async data => {
+      console.log(data.genres);
+      let genres = await data.genres;
+      console.log(genres);
+      return genres;
+    })
+    .catch(error => {
+      console.log(error);
+    });
+}
+
+// console.log(genres);
+
+// let ids = 37;
+// console.log(ids);
+
+const searchGenresName = ids => {
+  let genresNamesArr = [];
+  const searchId = ids;
+  // console.log(searchId);
+
+  for (var i = 0; i < ids.length; i++) {
+    elGenreName = genres.find(list => list.id === searchId[i]).name;
+    genresNamesArr.push(elGenreName);
+    // continue;
+  }
+  return genresNamesArr;
+};
+
 fetchApi(currentLanguage);
 async function fetchApi(language) {
   const currentLang = language;
@@ -61,5 +99,5 @@ async function fetchApi(language) {
       gallery.innerHTML = '';
       gallery.insertAdjacentHTML('beforeend', markup);
     })
-    .catch(err => console.log(err));
+    .catch(error => console.log(error));
 }
