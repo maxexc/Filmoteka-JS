@@ -3,61 +3,15 @@
 //     )
 //         .then(res => res.json())
 //         .then(data =>  console.log(data))
-import genresAll from './js/genres.js';
-import movieCard from './templates/card.hbs';
+// import genresAll from './js/genres.js';
+// import movieCard from './templates/card.hbs';
 
 // console.log(genresAll);
 
-console.dir(movieCard());
-
-const genresEn = [
-  { id: 28, name: 'Action' },
-  { id: 12, name: 'Adventure' },
-  { id: 16, name: 'Animation' },
-  { id: 35, name: 'Comedy' },
-  { id: 80, name: 'Crime' },
-  { id: 99, name: 'Documentary' },
-  { id: 18, name: 'Drama' },
-  { id: 10751, name: 'Family' },
-  { id: 14, name: 'Fantasy' },
-  { id: 36, name: 'History' },
-  { id: 27, name: 'Horror' },
-  { id: 10402, name: 'Music' },
-  { id: 9648, name: 'Mystery' },
-  { id: 10749, name: 'Romance' },
-  { id: 878, name: 'Science Fiction' },
-  { id: 10770, name: 'TV Movie' },
-  { id: 53, name: 'Thriller' },
-  { id: 10752, name: 'War' },
-  { id: 37, name: 'Western' },
-];
-
-const genresUkr = [
-  { id: 28, name: 'Бойовик' },
-  { id: 12, name: 'Пригоди' },
-  { id: 16, name: 'Мультфільм' },
-  { id: 35, name: 'Комедія' },
-  { id: 80, name: 'Кримінал' },
-  { id: 99, name: 'Документальний' },
-  { id: 18, name: 'Драма' },
-  { id: 10751, name: 'Сімейний' },
-  { id: 14, name: 'Фентезі' },
-  { id: 36, name: 'Історичний' },
-  { id: 27, name: 'Жахи' },
-  { id: 10402, name: 'Музика' },
-  { id: 9648, name: 'Детектив' },
-  { id: 10749, name: 'Мелодрама' },
-  { id: 878, name: 'Фантастика' },
-  { id: 10770, name: 'Телефільм' },
-  { id: 53, name: 'Трилер' },
-  { id: 10752, name: 'Військовий' },
-  { id: 37, name: 'Вестерн' },
-];
-
-var genresAll = { genresEn, genresUkr };
+// console.dir(movieCard());
 
 // console.log(genresAll.genresUkr);
-let genres = genresAll.genresEn;
+// let genres = genresAll.genresEn;
 
 const gallery = document.querySelector('.gallery');
 const btnEn = document.querySelector('#en');
@@ -71,14 +25,14 @@ function onEnClick() {
   fetchApi('en');
   fetchGenres('en');
   localStorage.setItem('language', 'en');
-  genres = genresAll.genresEn;
+  // genres = genresAll.genresEn;
 }
 function onUkClick() {
   gallery.innerHTML = '';
   fetchApi('uk');
   fetchGenres('uk');
   localStorage.setItem('language', 'uk');
-  genres = genresAll.genresUkr;
+  // genres = genresAll.genresUkr;
 }
 
 const currentLanguage = localStorage.getItem('language');
@@ -106,27 +60,27 @@ async function fetchGenres(language) {
 
 // console.log(genres);
 
-// const genres = [
-//   { id: 28, name: 'Action' },
-//   { id: 12, name: 'Adventure' },
-//   { id: 16, name: 'Animation' },
-//   { id: 35, name: 'Comedy' },
-//   { id: 80, name: 'Crime' },
-//   { id: 99, name: 'Documentary' },
-//   { id: 18, name: 'Drama' },
-//   { id: 10751, name: 'Family' },
-//   { id: 14, name: 'Fantasy' },
-//   { id: 36, name: 'History' },
-//   { id: 27, name: 'Horror' },
-//   { id: 10402, name: 'Music' },
-//   { id: 9648, name: 'Mystery' },
-//   { id: 10749, name: 'Romance' },
-//   { id: 878, name: 'Science Fiction' },
-//   { id: 10770, name: 'TV Movie' },
-//   { id: 53, name: 'Thriller' },
-//   { id: 10752, name: 'War' },
-//   { id: 37, name: 'Western' },
-// ];
+const genres = [
+  { id: 28, name: 'Action' },
+  { id: 12, name: 'Adventure' },
+  { id: 16, name: 'Animation' },
+  { id: 35, name: 'Comedy' },
+  { id: 80, name: 'Crime' },
+  { id: 99, name: 'Documentary' },
+  { id: 18, name: 'Drama' },
+  { id: 10751, name: 'Family' },
+  { id: 14, name: 'Fantasy' },
+  { id: 36, name: 'History' },
+  { id: 27, name: 'Horror' },
+  { id: 10402, name: 'Music' },
+  { id: 9648, name: 'Mystery' },
+  { id: 10749, name: 'Romance' },
+  { id: 878, name: 'Science Fiction' },
+  { id: 10770, name: 'TV Movie' },
+  { id: 53, name: 'Thriller' },
+  { id: 10752, name: 'War' },
+  { id: 37, name: 'Western' },
+];
 
 // let ids = 37;
 // console.log(ids);
