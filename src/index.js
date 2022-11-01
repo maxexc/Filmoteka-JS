@@ -6,7 +6,7 @@
 import genresAll from './js/genres.js';
 import movieCard from './templates/card.hbs';
 
-console.log(genresAll);
+// console.log(genresAll);
 
 console.dir(movieCard());
 
