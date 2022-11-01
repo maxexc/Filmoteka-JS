@@ -35,25 +35,29 @@ async function fetchApi(language) {
     .then(res => res.json())
     .then(data => {
       console.log(data);
-      const markup = data.results.map(item => {
-        return `<li class='gallery-item'>
-  <img src='https://image.tmdb.org/t/p/w342${
-    item.poster_path
-  }' alt='big' width='395' />
-  <div class='card-box'>
-    <h3 class='card-title'>${item.title}</h3>
-    <p class='text'>${item.genre_ids} | ${item.release_date}</p>
-  </div>
-   <div class="over">
-    <p>${item.overview}</p>
-    </div>
-                        <div class="rating">
-                        <span class="rating-value">${item.vote_average.toFixed(
-                          1
-                        )}</span>
-                    </div>
-</li>`;
-      });
+      const markup = data.results
+        .map(item => {
+          return `<li class="gallery-item">
+            <img
+              src="https://image.tmdb.org/t/p/w342${item.poster_path}"
+              alt="big"
+              width="395"
+            />
+            <div class="card-box">
+              <h3 class="card-title">${item.title}</h3>
+              <p class="text">${item.genre_ids} | ${item.release_date}</p>
+            </div>
+            <div class="over">
+              <p>${item.overview}</p>
+            </div>
+            <div class="rating">
+              <span class="rating-value"
+                >${item.vote_average.toFixed(1)}</span
+              >
+            </div>
+          </li>`;
+        })
+        .join('');
       gallery.innerHTML = '';
       gallery.insertAdjacentHTML('beforeend', markup);
     })
