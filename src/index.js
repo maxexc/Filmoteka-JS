@@ -1,10 +1,10 @@
-import genresAll from './js/genres.js';
-import movieCard from './templates/card.hbs';
+// import genresAll from './js/genres.js';
+// import movieCard from './templates/card.hbs';
 
 // console.log(genresAll);
+// console.log(genresAll.genresUkr);
 
-console.dir(movieCard());
-let genres = genresAll.genresEn;
+// console.dir(movieCard());
 
 const gallery = document.querySelector('.gallery');
 const btnEn = document.querySelector('#en');
@@ -12,6 +12,54 @@ const btnUk = document.querySelector('#uk');
 
 btnEn.addEventListener('click', onEnClick);
 btnUk.addEventListener('click', onUkClick);
+
+const genresEn = [
+  { id: 28, name: 'Action' },
+  { id: 12, name: 'Adventure' },
+  { id: 16, name: 'Animation' },
+  { id: 35, name: 'Comedy' },
+  { id: 80, name: 'Crime' },
+  { id: 99, name: 'Documentary' },
+  { id: 18, name: 'Drama' },
+  { id: 10751, name: 'Family' },
+  { id: 14, name: 'Fantasy' },
+  { id: 36, name: 'History' },
+  { id: 27, name: 'Horror' },
+  { id: 10402, name: 'Music' },
+  { id: 9648, name: 'Mystery' },
+  { id: 10749, name: 'Romance' },
+  { id: 878, name: 'Science Fiction' },
+  { id: 10770, name: 'TV Movie' },
+  { id: 53, name: 'Thriller' },
+  { id: 10752, name: 'War' },
+  { id: 37, name: 'Western' },
+];
+
+const genresUkr = [
+  { id: 28, name: 'Бойовик' },
+  { id: 12, name: 'Пригоди' },
+  { id: 16, name: 'Мультфільм' },
+  { id: 35, name: 'Комедія' },
+  { id: 80, name: 'Кримінал' },
+  { id: 99, name: 'Документальний' },
+  { id: 18, name: 'Драма' },
+  { id: 10751, name: 'Сімейний' },
+  { id: 14, name: 'Фентезі' },
+  { id: 36, name: 'Історичний' },
+  { id: 27, name: 'Жахи' },
+  { id: 10402, name: 'Музика' },
+  { id: 9648, name: 'Детектив' },
+  { id: 10749, name: 'Мелодрама' },
+  { id: 878, name: 'Фантастика' },
+  { id: 10770, name: 'Телефільм' },
+  { id: 53, name: 'Трилер' },
+  { id: 10752, name: 'Військовий' },
+  { id: 37, name: 'Вестерн' },
+];
+
+let genresAll = { genresEn, genresUkr };
+// console.log(genresAll.genresUkr);
+let genres = genresAll.genresEn;
 
 function onEnClick() {
   gallery.innerHTML = '';
@@ -53,28 +101,6 @@ async function fetchGenres(language) {
 
 // console.log(genres);
 
-// const genres = [
-//   { id: 28, name: 'Action' },
-//   { id: 12, name: 'Adventure' },
-//   { id: 16, name: 'Animation' },
-//   { id: 35, name: 'Comedy' },
-//   { id: 80, name: 'Crime' },
-//   { id: 99, name: 'Documentary' },
-//   { id: 18, name: 'Drama' },
-//   { id: 10751, name: 'Family' },
-//   { id: 14, name: 'Fantasy' },
-//   { id: 36, name: 'History' },
-//   { id: 27, name: 'Horror' },
-//   { id: 10402, name: 'Music' },
-//   { id: 9648, name: 'Mystery' },
-//   { id: 10749, name: 'Romance' },
-//   { id: 878, name: 'Science Fiction' },
-//   { id: 10770, name: 'TV Movie' },
-//   { id: 53, name: 'Thriller' },
-//   { id: 10752, name: 'War' },
-//   { id: 37, name: 'Western' },
-// ];
-
 // let ids = 37;
 // console.log(ids);
 
@@ -97,7 +123,7 @@ async function fetchApi(language) {
   const currentLang = language;
 
   await fetch(
-    `https://api.themoviedb.org/3/movie/upcoming?api_key=f87210516a7f6fda7a5c975f08793382&language=${currentLang}&page=1`
+    `https://api.themoviedb.org/3/movie/upcoming?api_key=f87210516a7f6fda7a5c975f08793382&page=1&language=${currentLang}`
     // `https://api.themoviedb.org/3/movie/541134/videos?api_key=f87210516a7f6fda7a5c975f08793382&language=${currentLang}`
     // `https://api.themoviedb.org/3/search/movie?api_key=f87210516a7f6fda7a5c975f08793382&language=${currentLang}&page=1&include_adult=false`
     // `https://api.themoviedb.org/3/trending/all/day?api_key=f87210516a7f6fda7a5c975f08793382&page=1&language=${currentLang}`
@@ -110,26 +136,25 @@ async function fetchApi(language) {
       console.log(data);
       const markup = data.results
         .map(item => {
-          return `<li class="gallery-item">
-            <img
-              src="https://image.tmdb.org/t/p/w342${item.poster_path}"
-              alt="big"
-              width="395"
-            />
-            <div class="card-box">
-              <h3 class="card-title">${item.title}</h3>
-              <p class="text">${searchGenresName(item.genre_ids)} | ${
+          // console.log(item.genre_ids);
+          return `<li class='gallery-item'>
+            <img src='https://image.tmdb.org/t/p/w500${
+              item.poster_path
+            }' alt='${item.title}' width='309' height='449'/>
+            <div class='card-box'>
+              <h3 class='card-title'>${item.title}</h3>
+              <p class='text'>${searchGenresName(item.genre_ids)} | ${
             item.release_date
           }</p>
             </div>
-            <div class="over">
+             <div class="over">
               <p>${item.overview}</p>
-            </div>
-            <div class="rating">
-              <span class="rating-value"
-                >${item.vote_average.toFixed(1)}</span
-              >
-            </div>
+              </div>
+                  <div class="rating">
+                   <span class="rating-value">${item.vote_average.toFixed(
+                     1
+                   )}</span>
+                  </div>
           </li>`;
         })
         .join('');
