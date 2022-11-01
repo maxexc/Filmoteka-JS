@@ -69,6 +69,7 @@ const genres = [
 const searchGenresName = ids => {
   let genresNamesArr = [];
   const searchId = ids;
+  elGenreName = '';
   // console.log(searchId);
 
   for (var i = 0; i < ids.length; i++) {
