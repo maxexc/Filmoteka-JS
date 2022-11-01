@@ -97,10 +97,10 @@ const searchGenresName = ids => {
 };
 
 fetchApi(currentLanguage);
-function fetchApi(language) {
+async function fetchApi(language) {
   const currentLang = language;
 
-  return (result = fetch(
+  return await (result = fetch(
     `https://api.themoviedb.org/3/movie/upcoming?api_key=f87210516a7f6fda7a5c975f08793382&language=${currentLang}&page=1`
     // `https://api.themoviedb.org/3/movie/541134/videos?api_key=f87210516a7f6fda7a5c975f08793382&language=${currentLang}`
     // `https://api.themoviedb.org/3/search/movie?api_key=f87210516a7f6fda7a5c975f08793382&language=${currentLang}&page=1&include_adult=false`
@@ -110,9 +110,9 @@ function fetchApi(language) {
     // `https://api.themoviedb.org/3/trending/movie/day?api_key=f87210516a7f6fda7a5c975f08793382&page=1&language=${currentLang}`
   )
     .then(res => res.json())
-    .then(data => {
+    .then(async data => {
       console.log(data);
-      const markup = data.results
+      const markup = await data.results
         .map(item => {
           // src = `'https://image.tmdb.org/t/p/w500${item.poster_path}'`;
           console.log(item.img);
