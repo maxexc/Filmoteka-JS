@@ -54,7 +54,7 @@ const genresUkr = [
   { id: 37, name: 'Вестерн' },
 ];
 
-let genresAll = { genresEn, genresUkr };
+var genresAll = { genresEn, genresUkr };
 
 // console.log(genresAll.genresUkr);
 let genres = genresAll.genresEn;
