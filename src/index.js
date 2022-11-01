@@ -1,7 +1,7 @@
-import genresAll from './js/genres.js';
+import { genresEn, genresUkr } from './js/genres.js';
 // import movieCard from './templates/card.hbs';
 
-console.log(genresAll);
+let genresAll = { genresEn, genresUkr };
 console.log(genresAll.genresUkr);
 
 // console.dir(movieCard());
