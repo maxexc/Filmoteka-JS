@@ -54,7 +54,7 @@ async function fetchApiFilms() {
   } catch (error) {
     console.log(error);
   }
-}
+
 
   listFilms = document.querySelector(".card-list")
   console.log(listFilms);
@@ -89,7 +89,7 @@ async function onCardClick(event) {
     }
   }  
 
-
+}
 
 
 
