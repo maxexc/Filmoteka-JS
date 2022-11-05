@@ -1,28 +1,19 @@
-{{!-- {{#each this.results}} --}}
-{{!-- `<li class='gallery-item'>
-  <img
-    src='https://image.tmdb.org/t/p/w500{{item.poster_path}}'
-    alt=`{{item.title}}`
-    width='309'
-    height='449'
-  />
-  <div class='card-box'>
-    <h3 class='card-title'>${item.title}</h3>
-    <p class='text'>${{item.genre_ids}} | ${{item.release_date}}</p>
-  </div>
-  <div class='over'>
-    <p>{{item.overview}}</p>
-  </div>
-  <div class='rating'>
-    <span class='rating-value'>item.vote_average.toFixed( 1 )</span>
-  </div>
-</li>` --}}
-{{!-- {{/each}} --}}
-
-{{! <li class='gallery-item'>
-  <img src='./img/Rectangle 5.png' alt='big' width='395' />
-  <div class='card-box'>
-    <h3 class='card-title'>Greyhound</h3>
-    <p class='text'>Drama, Action | 2020</p>
-  </div>
-</li> }}
+{{#each this}}
+  <li class='card' id='{{id}}'>
+    <div class='card-top' id='{{id}}'>
+      <img
+        src='https://image.tmdb.org/t/p/w500{{poster_path}}'
+        alt='{{title}}'
+        id='{{id}}'
+      />
+    </div>
+    <div class='card-box' id='{{id}}'>
+      <h3 class='card-title' id='{{id}}'>{{title}}</h3>
+      <div class='card-bottom' id='{{id}}'>
+        <p class='card-bottom-genres' id='{{id}}'>{{genre_ids}} |</p>
+        <span class='card-bottom-year' id='{{id}}'>{{release_date}}</span>
+      </div>
+    </div>
+    <span class='card-rating' id='{{id}}'>{{vote_average}}</span>
+  </li>
+{{/each}}

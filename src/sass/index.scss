@@ -1,2 +1,10 @@
 @import './common';
-// @import './example';
+@import './utils/mixin';
+@import './utils/variables';
+@import './components/reset';
+@import './components/gallery-card';
+@import './components/gallery-container';
+@import './components/modal-card';
+
+@import './layout/section';
+
